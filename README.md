@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# Prayer volume control
+Allows you to individually control the volume for each prayer.
