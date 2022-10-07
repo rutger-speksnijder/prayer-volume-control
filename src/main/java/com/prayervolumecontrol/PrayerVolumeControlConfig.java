@@ -10,26 +10,27 @@ public interface PrayerVolumeControlConfig extends Config
 {
 	@ConfigSection(
 			name = "Misc",
-			description = "Miscellaneous sounds related to prayer",
+			description = "Miscellaneous sounds related to prayers",
 			position = 0
 	)
 	String miscSection = "miscSection";
 
 	@ConfigItem(
-			keyName = "quick_prayer",
-			name = "Quick Prayer button click",
-			description = "Modify volume for the Quick Prayer button (set to 100 for default volume)",
+			keyName = "ui_boop",
+			name = "UI buttons (including quick prayer button)",
+			description = "<html>Modify volume for any UI buttons (set to 100 for default volume)" +
+					"<br>Changing this volume will affect all UI buttons (quick prayers, settings, world map, checkboxes, etc.)</html>",
 			section = miscSection
 	)
-	default int quickPrayer() { return 100; }
+	default int uiBoop() { return 100; }
 
 	@ConfigItem(
-			keyName = "prayer_off",
-			name = "Prayer disable",
-			description = "Modify volume for the Prayer disable sound (set to 100 for default volume)",
+			keyName = "prayer_deactivate",
+			name = "Prayer deactivation",
+			description = "Modify volume for the prayer deactivation sound (set to 100 for default volume)",
 			section = miscSection
 	)
-	default int prayerDisable() { return 100; }
+	default int prayerDeactivate() { return 100; }
 
 	@ConfigSection(
 			name = "Prayers",
