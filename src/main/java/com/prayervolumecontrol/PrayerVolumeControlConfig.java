@@ -9,9 +9,32 @@ import net.runelite.client.config.ConfigSection;
 public interface PrayerVolumeControlConfig extends Config
 {
 	@ConfigSection(
+			name = "Prayer volume",
+			description = "Manage the volume level for all prayers",
+			position = 0
+	)
+	String allPrayersSection = "allPrayersSection";
+
+	@ConfigItem(
+			keyName = "use_override_prayer_volume",
+			name = "Global prayer volume",
+			description = "Overrides the individual prayer volumes",
+			section = allPrayersSection
+	)
+	default boolean useOverridePrayerVolume() { return true; }
+
+	@ConfigItem(
+			keyName = "override_prayer_volume",
+			name = "Volume level",
+			description = "Modify volume for every prayer sound",
+			section = allPrayersSection
+	)
+	default int overridePrayerVolume() { return 50; }
+
+	@ConfigSection(
 			name = "Misc",
 			description = "Miscellaneous sounds related to prayers",
-			position = 0
+			position = 1
 	)
 	String miscSection = "miscSection";
 
@@ -33,9 +56,10 @@ public interface PrayerVolumeControlConfig extends Config
 	default int prayerDeactivate() { return 100; }
 
 	@ConfigSection(
-			name = "Prayers",
-			description = "All prayers",
-			position = 1
+			name = "Individual prayers",
+			description = "Manage the volume level for individual prayers",
+			position = 2,
+			closedByDefault = true
 	)
 	String prayerSection = "prayerSection";
 
